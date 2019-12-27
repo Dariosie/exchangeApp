@@ -2,19 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:visibility="visible"
     tools:context=".MainActivity"
     tools:visibility="visible">
 
     <Spinner
         android:id="@+id/spinnerStart"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="136dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="104dp"
         android:dropDownWidth="wrap_content"
         android:entries="@array/Currency"
         android:prompt="@string/StartSpinnerText"
@@ -25,53 +25,54 @@
 
     <Spinner
         android:id="@+id/spinnerEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="136dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:dropDownWidth="wrap_content"
         android:entries="@array/Currency"
         android:prompt="@string/EndSpinnerText"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="133dp"
         tools:visibility="visible" />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="245dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="135dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="56dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerStart"
+        app:layout_constraintStart_toStartOf="@+id/spinnerStart"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerStart" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="169dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="132dp"
-        android:text="TextView"
+        android:layout_width="145dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="88dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEnd"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="@+id/spinnerEnd"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEnd"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="144dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Aktualisieren"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
