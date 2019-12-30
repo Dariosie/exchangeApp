@@ -50,11 +50,11 @@ public class Rates {
         this.myr = myr;
     }
 
-    public double get_try() {
+    public double gettry() {
         return _try;
     }
 
-    public void set_try(double _try) {
+    public void settry(double _try) {
         this._try = _try;
     }
 

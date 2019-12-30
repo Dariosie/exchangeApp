@@ -1,6 +1,8 @@
 package com.example.exchange;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.KeyEvent;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +23,10 @@ public class MainActivity extends AppCompatActivity
     private Spinner endCurrency;
     private Spinner startCurrency;
     private TextView outputText;
-    private Button Aktualisieren;
+
+    private ListView runterswipen;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    public StoreValues storeValues;
 
 
 
@@ -29,10 +35,13 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
 
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+  //      storeValues= new StoreValues();
         outputText = (TextView) findViewById(R.id.textView);
 
         CashAmount = (EditText) findViewById(R.id.editText);
@@ -51,6 +60,7 @@ public class MainActivity extends AppCompatActivity
 
                         else
                         {
+
 
                             double variabel = ExchangeRate.getRate(startCurrency.getSelectedItem().toString(), endCurrency.getSelectedItem().toString());
 
@@ -86,14 +96,20 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        Aktualisieren = (Button) findViewById(R.id.button3);
-        Aktualisieren.setOnClickListener(listener);
 
         startCurrency = (Spinner) findViewById(R.id.spinnerStart);
 
         endCurrency = (Spinner) findViewById(R.id.spinnerEnd);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
 
+                storeValues=new StoreValues();
+
+
+            }
+        });
 
     }
 }

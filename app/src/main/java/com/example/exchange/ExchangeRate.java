@@ -1,5 +1,7 @@
 package com.example.exchange;
 
+import android.app.Activity;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONException;
@@ -16,7 +18,7 @@ public class ExchangeRate {
     public static double getRate(String StartCurrency, String EndCurrency) {
         String JsonCompleteRequest = null;
         try {
-            JsonCompleteRequest = RequestParser.getJSONObjectFromURL(StartCurrency).getString("rates").toLowerCase().replace("try", "_try");
+            JsonCompleteRequest =RequestParser.getJSONObjectFromURL(StartCurrency).getString("rates").toLowerCase();
         } catch (JSONException e) {
             e.printStackTrace();
         }
